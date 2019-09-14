@@ -5,10 +5,16 @@ function Button(props: any) {
   const notSelected = `${common} bg-transparent hover:bg-gray-500 text-gray-700 hover:text-white border-gray-500 hover:border-transparent`;
   const selected = `${common} bg-gray-500 text-white border-transparent`;
 
+  function click() {
+    if (props.onClick !== undefined) {
+      props.onClick();
+    }
+  }
+
   return (
     <button
       className={props.isSelected ? selected : notSelected}
-      onClick={() => props.onClick()}
+      onClick={click}
     >
       {props.text}
       {props.children}
